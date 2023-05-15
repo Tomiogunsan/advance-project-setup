@@ -68,14 +68,5 @@
     "stylelint-config-standard": "^33.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
-  "husky": { 
-    "hooks": {
-  "pre-commit": "lint-staged" 
+  
 }
-},
-
-"src/*.{ts,tsx}": "eslint", 
-"src/*.{css,scss}": "stylelint",
-"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier -w -u" 
-}
-
