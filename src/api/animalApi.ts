@@ -12,3 +12,17 @@ export const fetchDog = () => {
     baseURL: 'https://dog.ceo/api/',
   })
 }
+
+export type CatData = {
+  breeds: []
+  height: number
+  id: string
+  url: string
+  width: number
+}[]
+
+export const fetchCat = () => {
+  return api.get<CatData>(URLS.fetchCatUrl, {
+    baseURL: 'https://api.thecatapi.com/v1/',
+  })
+}
