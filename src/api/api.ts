@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, Cancel } from 'axios'
+import axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig, Cancel } from 'axios'
 import {
   ApiRequestConfig,
   WithAbortFn,
@@ -52,6 +52,45 @@ const withAbort = <T>(fn: WithAbortFn) => {
     }
   }
 }
+
+// error logging
+const withLogger = async <T>(promise: AxiosPromise<T>) =>
+  promise.catch((error: ApiError) => {
+    /*
+Always log errors in dev environment
+if (process.env.NODE_ENV !== 'development') throw error
+*/
+    // Log error only if REACT_APP_DEBUG_API env is set to true if (!process.env.REACT_APP_DEBUG_API) throw error
+    if (error.response) {
+      // The request was made and the server responded with a status code // that falls out of the range of 2xx console.log(error.response.data)
+      console.log(error.response.status)
+      console.log(error.response.headers)
+    } else if (error.request) {
+      // The request was made but no response was received // `error.request` is an instance of XMLHttpRequest // in the browser and an instance of
+      // http.ClientRequest in node.js console.log(error.request)
+    } else {
+      // Something happened in setting up the request that triggered an Error console.log('Error', error.message)
+    }
+    console.log(error.config)
+    throw error
+  })
+
+// error logging return
+// const api = (axios: AxiosInstance) => {
+//   return {
+//     get: <T>(url: string, config: ApiRequestConfig = {}) =>
+//       withLogger<T>(withAbort<T>(axios.get)(url, config)),
+//     delete: <T>(url: string, config: ApiRequestConfig = {}) =>
+//       withLogger<T>(withAbort<T>(axios.delete)(url, config)),
+//     post: <T>(url: string, body: unknown, config: ApiRequestConfig = {}) =>
+//       withLogger<T>(withAbort<T>(axios.post)(url, body, config)),
+//     patch: <T>(url: string, body: unknown, config: ApiRequestConfig = {}) =>
+//       withLogger<T>(withAbort<T>(axios.patch)(url, body, config)),
+//     put: <T>(url: string, body: unknown, config: ApiRequestConfig = {}) =>
+//       withLogger<T>(withAbort<T>(axios.put)(url, body, config)),
+//   }
+// }
+
 // Main api function
 const api = (axios: AxiosInstance) => {
   return {
