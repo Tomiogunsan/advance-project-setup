@@ -18,3 +18,12 @@ export type QuotesData = {
      hasMore?: boolean
     }
 export const fetchQuotesByPage = (page: number) => api.get<QuotesData>('quotes', { params: { page } }).then((res) => res.data)
+
+export type QuotesDataWithCursor = {
+  quotes: Quote[]
+  nextCursor: number | null
+}
+export const fetchQuotesByCursor = (cursor: number) =>
+  api
+    .get<QuotesDataWithCursor>('quotes', { params: { cursor } })
+    .then((res) => res.data)

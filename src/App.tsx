@@ -7,6 +7,7 @@ import FetchTopQuotes from '@/components/FetchTopQuotes'
 import './App.css'
 import AnimalExample from './components/AnimalExample'
 import UpdateQuotes from './components/UpdateQuotes'
+import PaginatedQuotes from './components/PaginatedQuotes'
 
 const queryClient = new QueryClient()
 
@@ -17,6 +18,7 @@ function App() {
         {/* <AnimalExample /> */}
         <UpdateQuotes />
         <FetchTopQuotes />
+        <PaginatedQuotes />
       </div>
     </QueryClientProvider>
   )
