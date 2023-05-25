@@ -8,6 +8,7 @@ import './App.css'
 import AnimalExample from './components/AnimalExample'
 import UpdateQuotes from './components/UpdateQuotes'
 import PaginatedQuotes from './components/PaginatedQuotes'
+import InfiniteScrollQuotes from './components/InfiniteScrollQuotes'
 
 const queryClient = new QueryClient()
 
@@ -19,6 +20,7 @@ function App() {
         <UpdateQuotes />
         <FetchTopQuotes />
         <PaginatedQuotes />
+        <InfiniteScrollQuotes />
       </div>
     </QueryClientProvider>
   )

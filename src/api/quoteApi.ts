@@ -27,3 +27,8 @@ export const fetchQuotesByCursor = (cursor: number) =>
   api
     .get<QuotesDataWithCursor>('quotes', { params: { cursor } })
     .then((res) => res.data)
+
+    // export const fetchTopQuotes = (config: ApiRequestConfig = {}) =>
+    //   api
+    //     .get<TopQuotesResponse>('quotes/top_quotes', config)
+    //     .then((res) => res.data.quotes)
