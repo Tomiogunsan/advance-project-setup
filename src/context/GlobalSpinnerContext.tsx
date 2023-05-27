@@ -24,12 +24,21 @@ const GlobalSpinnerContextProvider = (
     close: hideSpinner,
     toggle: toggleSpinner,
   } = useToggleState(false)
+
+  const values = useMemo(() => {
+    return {
+      isSpinnerVisible,
+      showSpinner,
+      hideSpinner,
+      toggleSpinner,
+    }
+  }, [isSpinnerVisible])
   return (
     <GlobalSpinnerContext.Provider
-      value={{ isSpinnerVisible, showSpinner, hideSpinner, toggleSpinner }}
+      value={values}
     >
       {children}
-      <GlobalSpinner />
+      <GlobalSpinner show={isSpinnerVisible} />
     </GlobalSpinnerContext.Provider>
   )
 }
