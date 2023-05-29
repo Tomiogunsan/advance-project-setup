@@ -11,6 +11,7 @@ import PaginatedQuotes from './components/PaginatedQuotes'
 import InfiniteScrollQuotes from './components/InfiniteScrollQuotes'
 import GlobalSpinnerExample from './components/GlobalSpinnerExample' 
 import GlobalSpinnerContextProvider from './context/GlobalSpinnerContext'
+import TasksBoard from './components/TasksBoard'
 
 const queryClient = new QueryClient()
 
@@ -24,7 +25,8 @@ function App() {
           <FetchTopQuotes />
           <PaginatedQuotes />
           <InfiniteScrollQuotes /> */}
-          <GlobalSpinnerExample />
+          {/* <GlobalSpinnerExample /> */}
+          <TasksBoard />
         </div>
       </QueryClientProvider>
     </GlobalSpinnerContextProvider>
