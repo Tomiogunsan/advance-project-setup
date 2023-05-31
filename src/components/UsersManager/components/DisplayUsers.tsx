@@ -6,6 +6,7 @@ type DisplayUsersProps = {}
 const DisplayUsers = (props: DisplayUsersProps) => {
   const dispatch = useAppDispatch()
   const users = useAppSelector((state) => state.users.users)
+  const deletingUserId = useAppSelector((state) => state.users.deletingUserId)
   return (
     <div>
       <h2 className='font-semibold text-xl mb-4'>Users</h2>{' '}
