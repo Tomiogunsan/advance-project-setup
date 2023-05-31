@@ -9,33 +9,31 @@ import AnimalExample from './components/AnimalExample'
 import UpdateQuotes from './components/UpdateQuotes'
 import PaginatedQuotes from './components/PaginatedQuotes'
 import InfiniteScrollQuotes from './components/InfiniteScrollQuotes'
-import GlobalSpinnerExample from './components/GlobalSpinnerExample' 
+import GlobalSpinnerExample from './components/GlobalSpinnerExample'
 import GlobalSpinnerContextProvider from './context/GlobalSpinnerContext'
 import TasksBoard from './components/TasksBoard'
 import ShoppingList from './components/ShoppingList'
-import { store } from './store'
-import { Provider } from 'react-redux'
+import UsersManager from './components/UsersManager/UsersManager'
 
 const queryClient = new QueryClient()
 
 function App() {
   return (
-    <Provider store={store}>
-      <GlobalSpinnerContextProvider>
-        <QueryClientProvider client={queryClient}>
-          <div className='App mx-auto max-w-6xl text-center my-8'>
-            {/* <AnimalExample /> */}
-            {/* <UpdateQuotes />
+    <GlobalSpinnerContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className='App mx-auto max-w-6xl text-center my-8'>
+          {/* <AnimalExample /> */}
+          {/* <UpdateQuotes />
           <FetchTopQuotes />
           <PaginatedQuotes />
           <InfiniteScrollQuotes /> */}
-            {/* <GlobalSpinnerExample /> */}
-            <TasksBoard />
-            <ShoppingList />
-          </div>
-        </QueryClientProvider>
-      </GlobalSpinnerContextProvider>
-    </Provider>
+          {/* <GlobalSpinnerExample /> */}
+          {/* <TasksBoard />
+          <ShoppingList /> */}
+          <UsersManager />
+        </div>
+      </QueryClientProvider>
+    </GlobalSpinnerContextProvider>
   )
 }
 
