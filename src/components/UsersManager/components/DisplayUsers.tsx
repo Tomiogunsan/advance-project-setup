@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { removeUser, selectUser } from '../usersSlice'
+import {  removeUser, selectUser } from '../usersSlice'
 
 type DisplayUsersProps = {}
 
