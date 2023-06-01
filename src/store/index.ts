@@ -19,6 +19,10 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   version: 1,
+  // used when you dont want slice to be persisted
+  // blacklist: ['users'],
+  // used when you want whitelist the slice that is to be cached
+  // whitelist: ['users'],
   storage,
 }
 

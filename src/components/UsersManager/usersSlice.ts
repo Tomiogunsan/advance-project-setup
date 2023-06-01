@@ -103,5 +103,7 @@ export const getSelectedUser = (state: RootState) => {
     ? usersSelector.selectById(state, state.users.selectedUserId)
     : null
 }
-export const { selectAll: selectAllUsers } = usersSelector
-export default usersSlice.reducer
+export const { selectAll: selectAllUsers, selectTotal: selectTotalUsers } =
+  usersSelector
+
+  export default usersSlice.reducer
