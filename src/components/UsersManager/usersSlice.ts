@@ -50,6 +50,9 @@ export const usersSlice = createSlice({
     selectUser: (state, action: PayloadAction<string>) => {
       state.selectedUserId = action.payload
     },
+    resetUsers: () => {
+      return usersAdapter.getInitialState<UsersState>(initialState)
+    },
     // addUser: (state, action: PayloadAction<User>) => {
     //   state.usersAdapter.push(action.payload)
     // },
@@ -93,7 +96,7 @@ export const usersSlice = createSlice({
     })
   },
 })
-export const { setUsers, selectUser } = usersSlice.actions
+export const { setUsers, selectUser, resetUsers } = usersSlice.actions
 
 export const usersSelector = usersAdapter.getSelectors<RootState>(
   (state) => state.users

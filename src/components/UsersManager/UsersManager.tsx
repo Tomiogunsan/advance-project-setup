@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import AddUsers from './components/AddUsers'
 import DisplayUsers from './components/DisplayUsers'
 import SelectedUserDetails from './components/SelectedUserDetails'
-import { fetchUsers } from './usersSlice'
+import { fetchUsers, selectTotalUsers } from './usersSlice'
 
 type UsersManagerProps = {}
 
@@ -12,9 +12,14 @@ const UsersManager = (props: UsersManagerProps) => {
   const fetchUsersStatus = useAppSelector(
     (state) => state.users.fetchUsersStatus
   )
+
+  const totalUsers = useAppSelector(selectTotalUsers)
+
   useEffect(() => {
+    if (totalUsers) return
     dispatch(fetchUsers())
   }, [dispatch])
+
   return (
     <div>
       {fetchUsersStatus === 'SUCCESS' ? (

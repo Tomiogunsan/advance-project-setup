@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore, createAction } from '@reduxjs/toolkit'
 import {
   persistStore,
   persistReducer,
@@ -26,7 +26,20 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+export const resetStore = createAction('resetStore')
+
+
+
+
+const appReducer: typeof rootReducer = (state, action) => {
+  if (action.type === resetStore.type) {
+    return rootReducer(undefined, action)
+  }
+  return rootReducer(state, action)
+}
+
+const persistedReducer = persistReducer(persistConfig, appReducer)
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
