@@ -50,6 +50,12 @@ export const usersSlice = createSlice({
     selectUser: (state, action: PayloadAction<string>) => {
       state.selectedUserId = action.payload
     },
+    // addUser: (state, action: PayloadAction<User>) => {
+    //   state.usersAdapter.push(action.payload)
+    // },
+    // removeUser: (state, action: PayloadAction<User>) => {
+    //   state.users = state.users.filter((user) => user.id !== action.payload.id)
+    // },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state, action) => {
