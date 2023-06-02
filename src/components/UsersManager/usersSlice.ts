@@ -8,6 +8,7 @@ import {
   createEntityAdapter,
 } from '@reduxjs/toolkit'
 import { User } from './UsersManager.types'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 type ApiStatus = 'IDLE' | 'PENDING' | 'SUCCESS' | 'ERROR'
 
