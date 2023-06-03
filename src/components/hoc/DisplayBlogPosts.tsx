@@ -1,19 +1,23 @@
 import withPagination, { WithPaginationProps } from './withPagination'
 import posts from './post.json'
 
+
 type BlogPostsProps = {} & WithPaginationProps
 
 const POSTS_PER_PAGE = 5
 
 const DisplayBlogPosts = (props: BlogPostsProps) => {
   const { page, prevPage, nextPage } = props
+
   const start = (page - 1) * POSTS_PER_PAGE
   const end = page * POSTS_PER_PAGE
   const currentPosts = posts.slice(start, end)
 
   const onNextPage = () => {
     const nextEnd = (page + 1) * POSTS_PER_PAGE
-    if (nextEnd > posts.length) return nextPage()
+    console.log("end", nextEnd)
+    if (nextEnd > posts.length) return
+     nextPage()
   }
   return (
     <div>
