@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { PolymorphicComponentProps } from './polymorphic.types'
+
 type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<
   C,
   {
