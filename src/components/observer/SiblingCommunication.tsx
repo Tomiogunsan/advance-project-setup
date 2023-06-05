@@ -3,6 +3,8 @@ import SiblingTwo from './SiblingTwo'
 
 type SiblingCommunicationProps = {}
 
+// communicating between sibling component
+
 const SiblingCommunication = (props: SiblingCommunicationProps) => {
   return (
     <div>
