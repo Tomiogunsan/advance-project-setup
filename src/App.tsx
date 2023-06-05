@@ -14,6 +14,7 @@ import GlobalSpinnerContextProvider from './context/GlobalSpinnerContext'
 import TasksBoard from './components/TasksBoard'
 import ShoppingList from './components/ShoppingList'
 import UsersManager from './components/UsersManager/UsersManager'
+import DisplayBlogPosts from './components/hoc/DisplayBlogPosts'
 
 const queryClient = new QueryClient()
 
@@ -30,7 +31,8 @@ function App() {
           {/* <GlobalSpinnerExample /> */}
           {/* <TasksBoard />
           <ShoppingList /> */}
-          <UsersManager />
+          {/* <UsersManager /> */}
+          <DisplayBlogPosts />
         </div>
       </QueryClientProvider>
     </GlobalSpinnerContextProvider>
