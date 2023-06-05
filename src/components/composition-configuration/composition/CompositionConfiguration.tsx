@@ -13,7 +13,6 @@ type CompositionConfigurationProps = {}
 const CompositionConfiguration = (props: CompositionConfigurationProps) => {
   return (
     <div>
-
       <h3 className='text-md md:text-lg font-semibold mb-4'>
         Alert components
       </h3>
@@ -102,6 +101,16 @@ const CompositionConfiguration = (props: CompositionConfigurationProps) => {
             </div>
           </AlertContent>{' '}
         </Alert>
+        {/* we can use combined alert to use both the configured and composition alert, its as shown below */}
+        {/* <div>
+          <CombinedAlert
+            show
+            variant='success'
+            headerText='Success'
+            text='Your action was completed successfully!'
+            onClose={() => {}}
+          />
+        </div> */}
       </div>{' '}
     </div>
   )

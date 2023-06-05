@@ -14,6 +14,7 @@
     "@types/react-dom": "^18.2.4",
     "axios": "^1.4.0",
     "intersection": "^0.0.1",
+    "mitt": "^3.0.0",
     "observer": "^0.0.2",
     "react": "^18.2.0",
     "react-datepicker": "^4.12.0",
