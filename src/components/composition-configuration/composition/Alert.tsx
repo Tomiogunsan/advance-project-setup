@@ -1,8 +1,10 @@
 import clsx from 'clsx'
 import React from 'react'
 import styles from '../Alert.module.css'
-import VariantContextProvider from './context/VariantContextProvider' import { AlertVariant } from '../alert.types'
+import VariantContextProvider from './context/VariantContextProvider' 
+import { AlertVariant } from '../alert.types'
 export * from './components'
+
 type AlertProps = {
 show: boolean
 variant: AlertVariant 
