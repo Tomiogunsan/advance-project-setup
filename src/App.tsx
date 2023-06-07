@@ -19,6 +19,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Login from './views/auth/Login'
 import Register from './views/auth/Register'
 import Dashboard from './views/dashboard/Dashboard'
+import DashboardLayout from './layout/DashboardLayout'
+import AuthLayout from './layout/AuthLayout'
 
 
 const queryClient = new QueryClient()
@@ -44,14 +46,19 @@ function App() {
           <nav className='my-8 space-x-4'>
             {' '}
             <Link to='/'>Dashboard</Link>
-            <Link to='/login'>Login</Link> 
+            <Link to='/login'>Login</Link>
             <Link to='/register'>Register</Link>
           </nav>
           <div>
             <Routes>
-              <Route path='/' element={<Dashboard />} />{' '}
-              <Route path='/login' element={<Login />} />{' '}
-              <Route path='/register' element={<Register />} />
+              <Route element={<DashboardLayout />}>
+                <Route path='/' element={<Dashboard />} />{' '}
+              </Route>
+
+              <Route element={<AuthLayout />}>
+                <Route path='/login' element={<Login />} />{' '}
+                <Route path='/register' element={<Register />} />
+              </Route>
             </Routes>
           </div>
         </QueryClientProvider>
