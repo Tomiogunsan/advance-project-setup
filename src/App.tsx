@@ -21,6 +21,9 @@ import Register from './views/auth/Register'
 import Dashboard from './views/dashboard/Dashboard'
 import DashboardLayout from './layout/DashboardLayout'
 import AuthLayout from './layout/AuthLayout'
+import Settings from './views/dashboard/Settings'
+import Welcome from './views/dashboard/Welcome'
+import Profile from './views/dashboard/Profile'
 
 
 const queryClient = new QueryClient()
@@ -53,6 +56,9 @@ function App() {
             <Routes>
               <Route element={<DashboardLayout />}>
                 <Route path='/' element={<Dashboard />} />{' '}
+                <Route index element={<Welcome />} />
+                <Route path='/settings' element={<Settings />} />
+                <Route path="/profile" element={<Profile />} />
               </Route>
 
               <Route element={<AuthLayout />}>
