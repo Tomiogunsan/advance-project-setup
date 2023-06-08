@@ -15,27 +15,61 @@ import TasksBoard from './components/TasksBoard'
 import ShoppingList from './components/ShoppingList'
 import UsersManager from './components/UsersManager/UsersManager'
 import DisplayBlogPosts from './components/hoc/DisplayBlogPosts'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Login from './views/auth/Login'
+import Register from './views/auth/Register'
+import Dashboard from './views/dashboard/Dashboard'
+import DashboardLayout from './layout/DashboardLayout'
+import AuthLayout from './layout/AuthLayout'
+import Settings from './views/dashboard/Settings'
+import Welcome from './views/dashboard/Welcome'
+import Profile from './views/dashboard/Profile'
+
 
 const queryClient = new QueryClient()
 
 function App() {
+  
   return (
-    <GlobalSpinnerContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <div className='App mx-auto max-w-6xl text-center my-8'>
-          {/* <AnimalExample /> */}
-          {/* <UpdateQuotes />
+    <BrowserRouter>
+      <GlobalSpinnerContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <div className='App mx-auto max-w-6xl text-center my-8'>
+            {/* <AnimalExample /> */}
+            {/* <UpdateQuotes />
           <FetchTopQuotes />
           <PaginatedQuotes />
           <InfiniteScrollQuotes /> */}
-          {/* <GlobalSpinnerExample /> */}
-          {/* <TasksBoard />
+            {/* <GlobalSpinnerExample /> */}
+            {/* <TasksBoard />
           <ShoppingList /> */}
-          {/* <UsersManager /> */}
-          <DisplayBlogPosts />
-        </div>
-      </QueryClientProvider>
-    </GlobalSpinnerContextProvider>
+            {/* <UsersManager /> */}
+            <DisplayBlogPosts />
+          </div>
+          <nav className='my-8 space-x-4'>
+            {' '}
+            <Link to='/'>Dashboard</Link>
+            <Link to='/login'>Login</Link>
+            <Link to='/register'>Register</Link>
+          </nav>
+          <div>
+            <Routes>
+              <Route element={<DashboardLayout />}>
+                <Route path='/' element={<Dashboard />} />{' '}
+                <Route index element={<Welcome />} />
+                <Route path='/settings' element={<Settings />} />
+                <Route path="/profile" element={<Profile />} />
+              </Route>
+
+              <Route element={<AuthLayout />}>
+                <Route path='/login' element={<Login />} />{' '}
+                <Route path='/register' element={<Register />} />
+              </Route>
+            </Routes>
+          </div>
+        </QueryClientProvider>
+      </GlobalSpinnerContextProvider>
+    </BrowserRouter>
   )
 }
 
